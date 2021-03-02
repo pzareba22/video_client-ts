@@ -1,4 +1,4 @@
-export interface Video {
+export interface video {
     kind:    string;
     etag:    string;
     id:      ID;
@@ -33,4 +33,4 @@ export interface Default {
     height: number;
 }
 
-export default Video;
+export default video;
