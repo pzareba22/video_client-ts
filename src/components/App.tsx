@@ -1,14 +1,15 @@
 import React from 'react';
 import SearchBar from './SearchBar'
 import youtube from '../api/youtube'
-import Video from '../interfaces/video'
+import video from '../interfaces/video'
+import VideoList from './VideoList'
 
 interface IState {
-    videos: Array<Video>
-}
+    videos: Array<video>
+};
 
 class App extends React.Component<{}, IState> {
-    state = {videos: []};
+    state: IState = {videos: []};
 
     handleSubmit = async(term: string) => {
         const response = await youtube.get('/search', {
@@ -23,6 +24,7 @@ class App extends React.Component<{}, IState> {
         return (
             <div className="ui container">
                 <SearchBar onSubmit={this.handleSubmit}/>
+                <VideoList videos={this.state.videos}/>
             </div>
         )
     }
