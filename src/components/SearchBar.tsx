@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 
 interface IState {
-    term: string
-};
+    term: string;
+}
 
 interface IProps {
-    onSubmit: (term: string) => void
-};
-
+    onSubmit: (term: string) => void;
+}
 
 class SearchBar extends React.Component<IProps, IState> {
-    state: IState = {term: ''};
+    state: IState = { term: "" };
 
     onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -18,14 +17,16 @@ class SearchBar extends React.Component<IProps, IState> {
     };
 
     render() {
-        return(
+        return (
             <div className="search-bar ui segment">
                 <form className="ui form" onSubmit={this.onFormSubmit}>
                     <div className="field">
                         <label>Video search</label>
                         <input
                             type="text"
-                            onChange={(e) => this.setState({ term: e.target.value })}
+                            onChange={(e) =>
+                                this.setState({ term: e.target.value })
+                            }
                             value={this.state.term}
                         />
                     </div>

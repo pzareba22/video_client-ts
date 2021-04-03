@@ -1,20 +1,22 @@
-import React from 'react';
-import video from '../interfaces/video'
+import React from "react";
+import video from "../interfaces/video";
 
 interface IProps {
-    video: video | null
-};
+    video: video | null;
+}
 
 const VideoDetail: React.FC<IProps> = ({ video }) => {
-
-    if(video){
-        
+    if (video) {
         const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
-        
-        return(
+
+        return (
             <div>
                 <div className="ui embed">
-                    <iframe src={videoSrc} frameBorder="0" title={video.snippet.title}></iframe>
+                    <iframe
+                        src={videoSrc}
+                        frameBorder="0"
+                        title={video.snippet.title}
+                    ></iframe>
                 </div>
                 <div className="ui segment">
                     <h4 className="ui header">{video.snippet.title}</h4>
@@ -22,9 +24,8 @@ const VideoDetail: React.FC<IProps> = ({ video }) => {
                 </div>
             </div>
         );
-    }
-    else{
-        return <div className="ui segment">empty 😩</div>;
+    } else {
+        return <div>Loading...</div>;
     }
 };
 
